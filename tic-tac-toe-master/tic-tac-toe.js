@@ -18,3 +18,17 @@ gameboard.addEventListener("DOMContentLoaded", () => {
             }
         });
     
+    });
+    //Exercise3
+    gameboard.querySelectorAll("#board > div").forEach(square => {
+        square.addEventListener("mouseover", function() {
+            if (square.textContent === "") {
+                square.classList.add("hover");
+            }
+        });
+
+        square.addEventListener("mouseout", function() {
+            square.classList.remove("hover");
+        });
+    });
+    
