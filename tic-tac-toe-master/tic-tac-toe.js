@@ -66,4 +66,18 @@ gameboard.addEventListener("DOMContentLoaded", () => {
                 gameState[combination[1]] === gameState[combination[2]];
         });
     }
-   
+    //Exercise5
+    gameboard.querySelector(".btn").addEventListener("click", function() {
+        gameState.fill("");
+        gameboard.querySelectorAll("#board > div").forEach(square => {
+            square.textContent = "";
+            square.classList.remove("X", "O");
+        });
+
+        let status = gameboard.getElementById("status");
+        status.classList.remove("you-won");
+        status.textContent = "Move your cursor over a square and right click to begin";
+
+        activeUser = "X";  
+    });
+    
