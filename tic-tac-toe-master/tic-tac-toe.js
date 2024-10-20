@@ -45,7 +45,7 @@ gameboard.addEventListener("DOMContentLoaded", () => {
                 if (checkWinner()) {
                     let status = gameboard.getElementById("status");
                     status.classList.add("you-won");
-                    status.textContent = `${activeUser} wins`;
+                    status.textContent = `Congratulations!${activeUser} is the Winner!`;
                 }
 
                 currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -80,4 +80,21 @@ gameboard.addEventListener("DOMContentLoaded", () => {
 
         activeUser = "X";  
     });
+    //Exercise6
+    gameboard.querySelectorAll("#board > div").forEach(square => {
+        square.addEventListener("click", function() {
+            if (square.textContent === "") {
+                square.textContent = activeUser;
+                square.classList.add(activeUser);
+                gameState[squareIndex] = activeUser;
+
+                if (checkWinner()) {
+                    gameboard.getElementById("status").textContent = `${activeUser} wins`;
+                    gameboard.getElementById("status").classList.add("you-won");
+                }
+
+                activeUser = activeUser === "X" ? "O" : "X";
+            }
+        });
+    }); 
     
